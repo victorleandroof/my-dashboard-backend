@@ -10,6 +10,11 @@ const typeOrmConfig:TypeOrmModuleOptions = {
     username: AppConfig.DB_USER,
     password: AppConfig.DB_PASSWORD,
     database: AppConfig.DB_NAME,
+    extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        }
+    },
     entities: [join(__dirname,'../**/*.entity{.ts,.js}')],
     migrationsRun: true,
     migrations: [join(__dirname, '../migration/**/*{.ts,.js}')],
